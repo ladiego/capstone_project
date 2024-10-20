@@ -90,7 +90,7 @@ WITH cte AS(
 	SELECT  
 		*
 	FROM users u 
-	WHERE email LIKE '%@gmail.com';
+	WHERE email LIKE '%@gmail.com'
 )
 
 SELECT 
@@ -121,33 +121,6 @@ CREATE VIEW User_after_1997 AS (
 SELECT * FROM User_after_1997;
 
 --K
-SELECT 
-	id,
-	created_at ,
-	title ,
-	category ,
-	vendor 
-FROM products p 
-
-WITH ProductDuplicates AS (
-    SELECT 
-        p.id,
-        p.created_at,
-        p.title,
-        p.category,
-        p.vendor,
-        ROW_NUMBER() OVER (PARTITION BY p.title ORDER BY p.created_at DESC) AS row_num
-    FROM Products p
-)
-SELECT id, created_at, title, category, vendor
-FROM ProductDuplicates
-WHERE title IN (
-    SELECT title
-    FROM ProductDuplicates
-    GROUP BY title
-    HAVING COUNT(*) > 1
-);
-
 WITH cte AS (
     SELECT 
         p.id,
