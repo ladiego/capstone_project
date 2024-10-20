@@ -1,11 +1,8 @@
 --A
 SELECT 
-	--user_id ,
 	COUNT(user_id) AS total_transaksi 
 FROM orders o
-GROUP BY user_id 
-ORDER BY total_transaksi DESC ;
-
+	
 --B
 SELECT 
 	SUM(total) AS Jumlah_order
