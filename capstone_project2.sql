@@ -14,9 +14,9 @@ FROM orders o
 --C
 SELECT 
 	p.title, 
-	COUNT(o.id) AS total_order 
+	COUNT(o.discount) AS total_order 
 FROM orders o 
-JOIN products p ON o.id = p.id 
+JOIN products p ON o.product_id = p.id 
 WHERE o.discount IS NOT NULL 
 GROUP BY title
 ORDER BY total_order DESC 
