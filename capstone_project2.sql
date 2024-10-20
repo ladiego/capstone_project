@@ -49,7 +49,7 @@ WITH cte AS (
 		p.title,
 		p.rating
 	FROM orders o 
-	JOIN products p ON o.id = p.id
+	JOIN products p ON o.product_id = p.id
 )
 SELECT 
 	title,
@@ -69,7 +69,7 @@ WITH cte AS(
 		r.created_at,
 		r.body
 	FROM products p 
-	JOIN reviews r ON p.id = r.id
+	JOIN reviews r ON p.id = r.product_id
 )
 SELECT 
 	body,
