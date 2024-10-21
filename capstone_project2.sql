@@ -27,7 +27,7 @@ WITH cte AS (
 		p.id,
 		p.category
 	FROM orders o 
-	JOIN products p ON o.id = p.id
+	JOIN products p ON o.product_id = p.id
 )
 SELECT 
 	category,
